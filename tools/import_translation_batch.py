@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import a translated JSONL batch into translations/rei_translation.csv.
+"""Import a translated JSONL translation patch into rei_translation.csv.
 
 Safety rules:
 - Update/ is never touched.
@@ -31,34 +31,29 @@ REQUIRED_CSV_COLUMNS = [
     "notes",
 ]
 
-REQUIRED_BATCH_KEYS = [
-    "row_number",
-    "file",
-    "line_number",
-    "japanese_text",
-    "english_text",
-    "french_translation",
-    "status",
-    "notes",
-]
+REQUIRED_PATCH_KEYS = {"row_number", "french_translation"}
+ALLOWED_PATCH_KEYS = {"row_number", "french_translation", "notes"}
 
 MAX_PRINTED_ERRORS = 50
 
 
 @dataclass(frozen=True)
 class BatchEntry:
-    """A validated JSONL batch entry ready to compare with the CSV."""
+    """A validated JSONL translation patch entry."""
 
     jsonl_line_number: int
     row_number: int
-    file: str
-    line_number: str
     french_translation: str
+    notes: str | None
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Import a translated JSONL batch into rei_translation.csv."
+        description="Import a simplified JSONL translation patch into rei_translation.csv.",
+        epilog=(
+            "Example: python tools/import_translation_batch.py "
+            "translations/batches/batch_0001_translated.jsonl --dry-run"
+        ),
     )
     parser.add_argument(
         "batch_jsonl",
@@ -104,7 +99,11 @@ def parse_batch_entry(
     if not isinstance(raw_entry, dict):
         return None, [f"JSONL line {jsonl_line_number}: entry must be an object"]
 
-    for key in REQUIRED_BATCH_KEYS:
+    extra_keys = sorted(set(raw_entry) - ALLOWED_PATCH_KEYS)
+    for key in extra_keys:
+        errors.append(f"JSONL line {jsonl_line_number}: unexpected key: {key}")
+
+    for key in REQUIRED_PATCH_KEYS:
         if key not in raw_entry:
             errors.append(f"JSONL line {jsonl_line_number}: missing key: {key}")
 
@@ -119,19 +118,20 @@ def parse_batch_entry(
                 f"JSONL line {jsonl_line_number}: row_number must be greater than zero"
             )
 
-    file_value, file_error = require_string(
-        raw_entry.get("file"), "file", jsonl_line_number
-    )
-    line_number_value, line_number_error = require_string(
-        raw_entry.get("line_number"), "line_number", jsonl_line_number
-    )
     french_value, french_error = require_string(
         raw_entry.get("french_translation"),
         "french_translation",
         jsonl_line_number,
     )
 
-    for error in (file_error, line_number_error, french_error):
+    notes_value: str | None = None
+    notes_error: str | None = None
+    if "notes" in raw_entry:
+        notes_value, notes_error = require_string(
+            raw_entry.get("notes"), "notes", jsonl_line_number
+        )
+
+    for error in (french_error, notes_error):
         if error:
             errors.append(error)
 
@@ -147,9 +147,8 @@ def parse_batch_entry(
         BatchEntry(
             jsonl_line_number=jsonl_line_number,
             row_number=parsed_row_number,
-            file=file_value,
-            line_number=line_number_value,
             french_translation=french_value,
+            notes=notes_value,
         ),
         [],
     )
@@ -161,7 +160,9 @@ def load_batch(batch_path: Path) -> tuple[list[BatchEntry], int, list[str]]:
     ignored = 0
     errors: list[str] = []
 
-    with batch_path.open("r", encoding="utf-8") as input_file:
+    # utf-8-sig accepts a Windows UTF-8 BOM at the start of the file while still
+    # passing each JSONL line to json.loads() for real syntax validation.
+    with batch_path.open("r", encoding="utf-8-sig") as input_file:
         for jsonl_line_number, line in enumerate(input_file, start=1):
             if line.strip() == "":
                 ignored += 1
@@ -187,7 +188,7 @@ def validate_entries_against_csv(
     entries: list[BatchEntry],
     rows: list[dict[str, str]],
 ) -> list[str]:
-    """Ensure every batch row points to the expected CSV row."""
+    """Ensure every patch row_number points to an existing CSV row."""
     errors: list[str] = []
     seen_row_numbers: set[int] = set()
 
@@ -203,18 +204,6 @@ def validate_entries_against_csv(
             errors.append(f"{label}: row_number is outside CSV data range")
             continue
 
-        csv_row = rows[entry.row_number - 1]
-        if csv_row.get("file") != entry.file:
-            errors.append(
-                f"{label}: file mismatch "
-                f"(CSV {csv_row.get('file')!r}, batch {entry.file!r})"
-            )
-        if csv_row.get("line_number") != entry.line_number:
-            errors.append(
-                f"{label}: line_number mismatch "
-                f"(CSV {csv_row.get('line_number')!r}, batch {entry.line_number!r})"
-            )
-
     return errors
 
 
@@ -229,10 +218,12 @@ def create_backup(csv_path: Path, repo_root: Path) -> Path:
 
 
 def apply_entries(entries: list[BatchEntry], rows: list[dict[str, str]]) -> None:
-    """Update only french_translation and status for validated rows."""
+    """Update translation fields for validated rows."""
     for entry in entries:
         csv_row = rows[entry.row_number - 1]
         csv_row["french_translation"] = entry.french_translation
+        if entry.notes is not None:
+            csv_row["notes"] = entry.notes
         csv_row["status"] = "draft"
 
 
