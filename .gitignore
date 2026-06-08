@@ -1,6 +1,5 @@
-# Python cache
 __pycache__/
 *.pyc
 
-# Local translation backups
 translations/backups/*.csv
+translations/update_backups/
