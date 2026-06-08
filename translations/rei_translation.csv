@@ -1,57 +1,57 @@
 file,line_number,original_line,japanese_text,english_text,french_translation,status,notes
-Update/batsukoishi01.txt,47,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#5ec69a>魅音</color>"", NULL, ""<color=#5ec69a>Mion</color>"", NULL, Line_ContinueAfterTyping); }",<color=#5ec69a>魅音</color>,<color=#5ec69a>Mion</color>,,todo,
+Update/batsukoishi01.txt,47,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#5ec69a>魅音</color>"", NULL, ""<color=#5ec69a>Mion</color>"", NULL, Line_ContinueAfterTyping); }",<color=#5ec69a>魅音</color>,<color=#5ec69a>Mion</color>,<color=#5ec69a>Mion</color>,draft,
 Update/batsukoishi01.txt,49,"	OutputLine(NULL, ""「そういうわけで！！"",
-		   NULL, ""\""And it's decided!!"", Line_ContinueAfterTyping);",「そういうわけで！！,"""And it's decided!!",,todo,
+		   NULL, ""\""And it's decided!!"", Line_ContinueAfterTyping);",「そういうわけで！！,"""And it's decided!!",« Et donc !!,draft,
 Update/batsukoishi01.txt,52,"	OutputLine(NULL, ""　本日のビリは前原圭一に決定〜〜！！！」"",
-		   NULL, "" Keiichi Maebara is in last place today~~!!!\"""", Line_Normal);",　本日のビリは前原圭一に決定〜〜！！！」," Keiichi Maebara is in last place today~~!!!""",,todo,
-Update/batsukoishi01.txt,57,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#956f6e>圭一</color>"", NULL, ""<color=#956f6e>Keiichi</color>"", NULL, Line_ContinueAfterTyping); }",<color=#956f6e>圭一</color>,<color=#956f6e>Keiichi</color>,,todo,
+		   NULL, "" Keiichi Maebara is in last place today~~!!!\"""", Line_Normal);",　本日のビリは前原圭一に決定〜〜！！！」," Keiichi Maebara is in last place today~~!!!""", Le dernier du jour est Keiichi Maebara~~ !!! »,draft,
+Update/batsukoishi01.txt,57,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#956f6e>圭一</color>"", NULL, ""<color=#956f6e>Keiichi</color>"", NULL, Line_ContinueAfterTyping); }",<color=#956f6e>圭一</color>,<color=#956f6e>Keiichi</color>,<color=#956f6e>Keiichi</color>,draft,
 Update/batsukoishi01.txt,59,"	OutputLine(NULL, ""「うおおおぉおぉおー！！"",
-		   NULL, ""\""Uwwoooohhhh!!"", Line_ContinueAfterTyping);",「うおおおぉおぉおー！！,"""Uwwoooohhhh!!",,todo,
+		   NULL, ""\""Uwwoooohhhh!!"", Line_ContinueAfterTyping);",「うおおおぉおぉおー！！,"""Uwwoooohhhh!!",« Uoooooooh !!,draft,
 Update/batsukoishi01.txt,62,"	OutputLine(NULL, ""　まっまっ、また！！"",
-		   NULL, "" N-N-Not again!!"", Line_ContinueAfterTyping);",　まっまっ、また！！, N-N-Not again!!,,todo,
+		   NULL, "" N-N-Not again!!"", Line_ContinueAfterTyping);",　まっまっ、また！！, N-N-Not again!!," M-M-Mais, encore !!",draft,
 Update/batsukoishi01.txt,66,"	OutputLine(NULL, ""　また負けたああぁあぁあ！！」"",
-		   NULL, "" I lost agaaaaaain!!\"""", Line_Continue);",　また負けたああぁあぁあ！！」," I lost agaaaaaain!!""",,todo,
+		   NULL, "" I lost agaaaaaain!!\"""", Line_Continue);",　また負けたああぁあぁあ！！」," I lost agaaaaaain!!""", J'ai encore perduuuu !! »,draft,
 Update/batsukoishi01.txt,82,"	OutputLine(NULL, ""　こうして、前原圭一の恥ずかしい罰ゲームが、今日も決定したのだった。"",
-		   NULL, ""That was how it came to be that Keiichi Maebara once again played an embarrassing punishment game."", GetGlobalFlag(GLinemodeSp));",　こうして、前原圭一の恥ずかしい罰ゲームが、今日も決定したのだった。,That was how it came to be that Keiichi Maebara once again played an embarrassing punishment game.,,todo,
+		   NULL, ""That was how it came to be that Keiichi Maebara once again played an embarrassing punishment game."", GetGlobalFlag(GLinemodeSp));",　こうして、前原圭一の恥ずかしい罰ゲームが、今日も決定したのだった。,That was how it came to be that Keiichi Maebara once again played an embarrassing punishment game.,"C'est ainsi qu'une fois de plus, le gage embarrassant de Keiichi Maebara fut décidé pour aujourd'hui.",draft,
 Update/batsukoishi01.txt,89,"	OutputLine(NULL, ""　どんな恥ずかしい罰ゲームだったかは、取り合えず彼の名誉のために、内緒としよう…。"",
-		   NULL, ""For the sake of his honor, we'll keep exactly how embarrassing it would be a secret for now..."", Line_Normal);",　どんな恥ずかしい罰ゲームだったかは、取り合えず彼の名誉のために、内緒としよう…。,"For the sake of his honor, we'll keep exactly how embarrassing it would be a secret for now...",,todo,
-Update/batsukoishi01.txt,99,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#956f6e>圭一</color>"", NULL, ""<color=#956f6e>Keiichi</color>"", NULL, Line_ContinueAfterTyping); }",<color=#956f6e>圭一</color>,<color=#956f6e>Keiichi</color>,,todo,
+		   NULL, ""For the sake of his honor, we'll keep exactly how embarrassing it would be a secret for now..."", Line_Normal);",　どんな恥ずかしい罰ゲームだったかは、取り合えず彼の名誉のために、内緒としよう…。,"For the sake of his honor, we'll keep exactly how embarrassing it would be a secret for now...","Pour préserver son honneur, gardons pour l'instant le secret sur la nature exacte de ce gage embarrassant...",draft,
+Update/batsukoishi01.txt,99,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#956f6e>圭一</color>"", NULL, ""<color=#956f6e>Keiichi</color>"", NULL, Line_ContinueAfterTyping); }",<color=#956f6e>圭一</color>,<color=#956f6e>Keiichi</color>,<color=#956f6e>Keiichi</color>,draft,
 Update/batsukoishi01.txt,101,"	OutputLine(NULL, ""「のわああぁあぁああぁぁ！！"",
-		   NULL, ""\""Nowaahhhhh!!"", Line_ContinueAfterTyping);",「のわああぁあぁああぁぁ！！,"""Nowaahhhhh!!",,todo,
+		   NULL, ""\""Nowaahhhhh!!"", Line_ContinueAfterTyping);",「のわああぁあぁああぁぁ！！,"""Nowaahhhhh!!",« Nooooon !!,draft,
 Update/batsukoishi01.txt,103,"	OutputLine(NULL, ""　やめッ、許して！！"",
-		   NULL, "" No, please, forgive me!!"", Line_ContinueAfterTyping);",　やめッ、許して！！," No, please, forgive me!!",,todo,
+		   NULL, "" No, please, forgive me!!"", Line_ContinueAfterTyping);",　やめッ、許して！！," No, please, forgive me!!"," Arrêtez, pitié !!",draft,
 Update/batsukoishi01.txt,105,"	OutputLine(NULL, ""　ひぃいいいぃい！"",
-		   NULL, "" Heeeeeee!"", Line_ContinueAfterTyping);",　ひぃいいいぃい！, Heeeeeee!,,todo,
+		   NULL, "" Heeeeeee!"", Line_ContinueAfterTyping);",　ひぃいいいぃい！, Heeeeeee!, Hiiiiiii !,draft,
 Update/batsukoishi01.txt,107,"	OutputLine(NULL, ""　お婿に行けなくなるーー！！」"",
-		   NULL, "" I can't get married anymooore!!\"""", Line_Normal);",　お婿に行けなくなるーー！！」," I can't get married anymooore!!""",,todo,
-Update/batsukoishi01.txt,138,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#956f6e>圭一</color>"", NULL, ""<color=#956f6e>Keiichi</color>"", NULL, Line_ContinueAfterTyping); }",<color=#956f6e>圭一</color>,<color=#956f6e>Keiichi</color>,,todo,
+		   NULL, "" I can't get married anymooore!!\"""", Line_Normal);",　お婿に行けなくなるーー！！」," I can't get married anymooore!!""", Je ne pourrai plus jamais me marier !! »,draft,
+Update/batsukoishi01.txt,138,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#956f6e>圭一</color>"", NULL, ""<color=#956f6e>Keiichi</color>"", NULL, Line_ContinueAfterTyping); }",<color=#956f6e>圭一</color>,<color=#956f6e>Keiichi</color>,<color=#956f6e>Keiichi</color>,draft,
 Update/batsukoishi01.txt,140,"	OutputLine(NULL, ""「何でだ、何で俺は勝てないんだ…！"",
-		   NULL, ""\""Why... Why can't I win...?!"", Line_ContinueAfterTyping);",「何でだ、何で俺は勝てないんだ…！,"""Why... Why can't I win...?!",,todo,
+		   NULL, ""\""Why... Why can't I win...?!"", Line_ContinueAfterTyping);",「何でだ、何で俺は勝てないんだ…！,"""Why... Why can't I win...?!",« Pourquoi... pourquoi j'arrive jamais à gagner... ?!,draft,
 Update/batsukoishi01.txt,143,"	OutputLine(NULL, ""　最近、明らかに勝ってない。"",
-		   NULL, "" I've been losing constantly lately."", Line_ContinueAfterTyping);",　最近、明らかに勝ってない。, I've been losing constantly lately.,,todo,
+		   NULL, "" I've been losing constantly lately."", Line_ContinueAfterTyping);",　最近、明らかに勝ってない。, I've been losing constantly lately.," Ces derniers temps, je perds vraiment tout le temps.",draft,
 Update/batsukoishi01.txt,146,"	OutputLine(NULL, ""というか罰ゲーム常連だよな。"",
-		   NULL, "" I'm a punishment game regular at this point."", Line_ContinueAfterTyping);",というか罰ゲーム常連だよな。, I'm a punishment game regular at this point.,,todo,
+		   NULL, "" I'm a punishment game regular at this point."", Line_ContinueAfterTyping);",というか罰ゲーム常連だよな。, I'm a punishment game regular at this point.,"En fait, je suis carrément devenu un habitué des gages.",draft,
 Update/batsukoishi01.txt,149,"	OutputLine(NULL, ""…お、俺はこのままみんなの着せ替え人形になってしまうのかあぁあぁッ！！」"",
-		   NULL, "" ...I-Is this it? Am I just everyone's dress-up doll now?!\"""", GetGlobalFlag(GLinemodeSp));",…お、俺はこのままみんなの着せ替え人形になってしまうのかあぁあぁッ！！」," ...I-Is this it? Am I just everyone's dress-up doll now?!""",,todo,
+		   NULL, "" ...I-Is this it? Am I just everyone's dress-up doll now?!\"""", GetGlobalFlag(GLinemodeSp));",…お、俺はこのままみんなの着せ替え人形になってしまうのかあぁあぁッ！！」," ...I-Is this it? Am I just everyone's dress-up doll now?!""","…J-je vais finir en poupée à habiller pour tout le monde, ou quoiii ?! »",draft,
 Update/batsukoishi01.txt,157,"	OutputLine(NULL, ""　枕を涙で濡らすという言葉があることを、圭一は身をもって体験している最中だった……。"",
-		   NULL, ""Keiichi was just experiencing firsthand what it meant to cry into one's pillow..."", Line_Normal);",　枕を涙で濡らすという言葉があることを、圭一は身をもって体験している最中だった……。,Keiichi was just experiencing firsthand what it meant to cry into one's pillow...,,todo,
-Update/batsukoishi01.txt,162,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#956f6e>圭一</color>"", NULL, ""<color=#956f6e>Keiichi</color>"", NULL, Line_ContinueAfterTyping); }",<color=#956f6e>圭一</color>,<color=#956f6e>Keiichi</color>,,todo,
+		   NULL, ""Keiichi was just experiencing firsthand what it meant to cry into one's pillow..."", Line_Normal);",　枕を涙で濡らすという言葉があることを、圭一は身をもって体験している最中だった……。,Keiichi was just experiencing firsthand what it meant to cry into one's pillow...,Keiichi était alors en train d'apprendre à ses dépens ce que signifiait l'expression « pleurer dans son oreiller »...,draft,
+Update/batsukoishi01.txt,162,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#956f6e>圭一</color>"", NULL, ""<color=#956f6e>Keiichi</color>"", NULL, Line_ContinueAfterTyping); }",<color=#956f6e>圭一</color>,<color=#956f6e>Keiichi</color>,<color=#956f6e>Keiichi</color>,draft,
 Update/batsukoishi01.txt,164,"	OutputLine(NULL, ""「あぁぁ…神さま仏さま、いらっしゃるならどうかお聞き届け下さい。"",
-		   NULL, ""\""Ahhh... God, Buddha, if you're out there, please, grant my prayers."", Line_ContinueAfterTyping);",「あぁぁ…神さま仏さま、いらっしゃるならどうかお聞き届け下さい。,"""Ahhh... God, Buddha, if you're out there, please, grant my prayers.",,todo,
+		   NULL, ""\""Ahhh... God, Buddha, if you're out there, please, grant my prayers."", Line_ContinueAfterTyping);",「あぁぁ…神さま仏さま、いらっしゃるならどうかお聞き届け下さい。,"""Ahhh... God, Buddha, if you're out there, please, grant my prayers.","« Aaaah... Dieu, Bouddha, si vous existez, je vous en supplie, écoutez ma prière.",draft,
 Update/batsukoishi01.txt,167,"	OutputLine(NULL, ""部活に負けないようになりたい！"",
-		   NULL, "" I don't want to have to lose these club games forever!"", Line_ContinueAfterTyping);",部活に負けないようになりたい！, I don't want to have to lose these club games forever!,,todo,
+		   NULL, "" I don't want to have to lose these club games forever!"", Line_ContinueAfterTyping);",部活に負けないようになりたい！, I don't want to have to lose these club games forever!,Je veux ne plus perdre aux jeux du club !,draft,
 Update/batsukoishi01.txt,170,"	OutputLine(NULL, ""　どうか俺に不敗の力をーー！」"",
-		   NULL, "" Please, grant me the power to never lose again...!\"""", Line_Normal);",　どうか俺に不敗の力をーー！」," Please, grant me the power to never lose again...!""",,todo,
+		   NULL, "" Please, grant me the power to never lose again...!\"""", Line_Normal);",　どうか俺に不敗の力をーー！」," Please, grant me the power to never lose again...!""", Accordez-moi le pouvoir d'être imbattable — ! »,draft,
 Update/batsukoishi01.txt,179,"	OutputLine(NULL, ""　その時！！"",
-		   NULL, ""Just then!!"", Line_Normal);",　その時！！,Just then!!,,todo,
-Update/batsukoishi01.txt,189,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#f5e6d3>？？？</color>"", NULL, ""<color=#f5e6d3>???</color>"", NULL, Line_ContinueAfterTyping); }",<color=#f5e6d3>？？？</color>,<color=#f5e6d3>???</color>,,todo,
+		   NULL, ""Just then!!"", Line_Normal);",　その時！！,Just then!!,À cet instant !!,draft,
+Update/batsukoishi01.txt,189,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#f5e6d3>？？？</color>"", NULL, ""<color=#f5e6d3>???</color>"", NULL, Line_ContinueAfterTyping); }",<color=#f5e6d3>？？？</color>,<color=#f5e6d3>???</color>,<color=#f5e6d3>???</color>,draft,
 Update/batsukoishi01.txt,191,"	OutputLine(NULL, ""「水臭いよＫぇええぇええぇぇい！！」"",
-		   NULL, ""\""Don't be so distant, Keeeeeeeiiiiiiiii!!\"""", Line_Continue);",「水臭いよＫぇええぇええぇぇい！！」,"""Don't be so distant, Keeeeeeeiiiiiiiii!!""",,todo,
-Update/batsukoishi01.txt,197,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#f5e6d3>？？？</color>"", NULL, ""<color=#f5e6d3>???</color>"", NULL, Line_ContinueAfterTyping); }",<color=#f5e6d3>？？？</color>,<color=#f5e6d3>???</color>,,todo,
+		   NULL, ""\""Don't be so distant, Keeeeeeeiiiiiiiii!!\"""", Line_Continue);",「水臭いよＫぇええぇええぇぇい！！」,"""Don't be so distant, Keeeeeeeiiiiiiiii!!""","« Ne fais pas comme si on était des étrangers, Kééééééééééii !! »",draft,Correction manuelle : 水臭い signifie ici ne pas garder ses distances / ne pas faire comme si on n’était pas proches.
+Update/batsukoishi01.txt,197,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#f5e6d3>？？？</color>"", NULL, ""<color=#f5e6d3>???</color>"", NULL, Line_ContinueAfterTyping); }",<color=#f5e6d3>？？？</color>,<color=#f5e6d3>???</color>,<color=#f5e6d3>???</color>,draft,
 Update/batsukoishi01.txt,199,"	OutputLine(NULL, ""「神さま仏さま聖母さま！！"",
-		   NULL, ""\""God, Buddha, the Holy Mother?!"", Line_ContinueAfterTyping);",「神さま仏さま聖母さま！！,"""God, Buddha, the Holy Mother?!",,todo,
+		   NULL, ""\""God, Buddha, the Holy Mother?!"", Line_ContinueAfterTyping);",「神さま仏さま聖母さま！！,"""God, Buddha, the Holy Mother?!","« Dieu, Bouddha, la Sainte Vierge !!",draft,
 Update/batsukoishi01.txt,201,"	OutputLine(NULL, ""　祈る対象数あれど、その前に頼るべき頼もしい味方がいるじゃあないか！！」"",
-		   NULL, "" You pray to many—when you have other more reliable allies you could be asking first!\"""", GetGlobalFlag(GLinemodeSp));",　祈る対象数あれど、その前に頼るべき頼もしい味方がいるじゃあないか！！」," You pray to many—when you have other more reliable allies you could be asking first!""",,todo,
+		   NULL, "" You pray to many—when you have other more reliable allies you could be asking first!\"""", GetGlobalFlag(GLinemodeSp));",　祈る対象数あれど、その前に頼るべき頼もしい味方がいるじゃあないか！！」," You pray to many—when you have other more reliable allies you could be asking first!"""," Tu peux prier qui tu veux, mais avant ça, tu as des alliés autrement plus fiables sur qui compter, non ?! »",draft,
 Update/batsukoishi01.txt,206,"	if (GetGlobalFlag(GADVMode)) { OutputLine(""<color=#f5e6d3>？？？</color>"", NULL, ""<color=#f5e6d3>???</color>"", NULL, Line_ContinueAfterTyping); }",<color=#f5e6d3>？？？</color>,<color=#f5e6d3>???</color>,,todo,
 Update/batsukoishi01.txt,208,"	OutputLine(NULL, ""「そういう事です、んっふっふっふ！！」"",
 		   NULL, ""\""Exactly, nfu fu fu!!\"""", Line_Normal);",「そういう事です、んっふっふっふ！！」,"""Exactly, nfu fu fu!!""",,todo,
