@@ -111,6 +111,38 @@ def iter_todo_rows(csv_path: Path, file_filter: str | None):
             yield row_number, row
 
 
+def write_jsonl_record(output_file, record: dict[str, object]) -> None:
+    """Write one JSONL object using the standard JSON encoder.
+
+    Do not build JSON by hand: json.dumps escapes embedded quotes in text fields
+    such as english_text while preserving the exact Python string values.
+    """
+    output_file.write(json.dumps(record, ensure_ascii=False))
+    output_file.write("\n")
+
+
+def validate_jsonl(output_path: Path) -> int:
+    """Re-read the generated JSONL and fail loudly on the first invalid line."""
+    valid_lines = 0
+
+    with output_path.open("r", encoding="utf-8") as input_file:
+        for line_number, line in enumerate(input_file, start=1):
+            if line.strip() == "":
+                raise ValueError(f"{output_path}: line {line_number} is empty")
+
+            try:
+                json.loads(line)
+            except json.JSONDecodeError as error:
+                raise ValueError(
+                    f"{output_path}: invalid JSON on line {line_number}: "
+                    f"{error.msg} at column {error.colno}"
+                ) from error
+
+            valid_lines += 1
+
+    return valid_lines
+
+
 def export_batch(
     csv_path: Path,
     output_path: Path,
@@ -123,7 +155,7 @@ def export_batch(
 
     with output_path.open("w", encoding="utf-8", newline="\n") as output_file:
         for row_number, row in iter_todo_rows(csv_path, file_filter):
-            item = {
+            record = {
                 "row_number": row_number,
                 "file": row.get("file", ""),
                 "line_number": row.get("line_number", ""),
@@ -133,9 +165,7 @@ def export_batch(
                 "status": row.get("status", ""),
                 "notes": row.get("notes", ""),
             }
-            output_file.write(
-                json.dumps(item, ensure_ascii=False, separators=(",", ":")) + "\n"
-            )
+            write_jsonl_record(output_file, record)
             written += 1
 
             if written >= limit:
@@ -183,11 +213,13 @@ def main(argv: list[str] | None = None) -> int:
     try:
         output_path = resolve_output_path(batch_dir, args.output)
         written = export_batch(csv_path, output_path, args.limit, file_filter)
+        valid_lines = validate_jsonl(output_path)
     except (OSError, ValueError, csv.Error) as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return 1
 
     print(f"Wrote {written} row(s) to {output_path}")
+    print(f"Validated {valid_lines} JSONL line(s)")
     if file_filter is not None:
         print(f"File filter: {file_filter}")
     return 0
