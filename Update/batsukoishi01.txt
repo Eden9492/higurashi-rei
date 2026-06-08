@@ -47,24 +47,24 @@ void main()
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#5ec69a>魅音</color>", NULL, "<color=#5ec69a>Mion</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 3, "ps3/s27/03/nmio_1610", 128, TRUE);
 	OutputLine(NULL, "「そういうわけで！！",
-		   NULL, "\"And it's decided!!", Line_ContinueAfterTyping);
+		   NULL, "« Et donc !!", Line_ContinueAfterTyping);
 	SetSpeedOfMessage( FALSE, 0 );
 	OutputLine(NULL, "　本日のビリは前原圭一に決定〜〜！！！」",
-		   NULL, " Keiichi Maebara is in last place today~~!!!\"", Line_Normal);
+		   NULL, " Le dernier du jour est Keiichi Maebara~~ !!! »", Line_Normal);
 	ClearMessage();
 	//;＜魅音
 
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Keiichi</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 1, "ps3/s27/01/nkei_1550", 128, TRUE);
 	OutputLine(NULL, "「うおおおぉおぉおー！！",
-		   NULL, "\"Uwwoooohhhh!!", Line_ContinueAfterTyping);
+		   NULL, "« Uoooooooh !!", Line_ContinueAfterTyping);
 
 	OutputLine(NULL, "　まっまっ、また！！",
-		   NULL, " N-N-Not again!!", Line_ContinueAfterTyping);
+		   NULL, " M-M-Mais, encore !!", Line_ContinueAfterTyping);
 	SetSpeedOfMessage( TRUE, 128 );
 
 	OutputLine(NULL, "　また負けたああぁあぁあ！！」",
-		   NULL, " I lost agaaaaaain!!\"", Line_Continue);
+		   NULL, " J'ai encore perduuuu !! »", Line_Continue);
 	SetSpeedOfMessage( FALSE, 0 );
 	OutputLineAll(NULL, "", Line_Normal);
 
@@ -80,14 +80,14 @@ void main()
 
 	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
 	OutputLine(NULL, "　こうして、前原圭一の恥ずかしい罰ゲームが、今日も決定したのだった。",
-		   NULL, "That was how it came to be that Keiichi Maebara once again played an embarrassing punishment game.", GetGlobalFlag(GLinemodeSp));
+		   NULL, "C'est ainsi qu'une fois de plus, le gage embarrassant de Keiichi Maebara fut décidé pour aujourd'hui.", GetGlobalFlag(GLinemodeSp));
 	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
 
 	if (GetGlobalFlag(GADVMode) == 0) { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
 
 	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
 	OutputLine(NULL, "　どんな恥ずかしい罰ゲームだったかは、取り合えず彼の名誉のために、内緒としよう…。",
-		   NULL, "For the sake of his honor, we'll keep exactly how embarrassing it would be a secret for now...", Line_Normal);
+		   NULL, "Pour préserver son honneur, gardons pour l'instant le secret sur la nature exacte de ce gage embarrassant...", Line_Normal);
 	ClearMessage();
 
 	DrawScene( "bg/gr2", 100 );
@@ -99,13 +99,13 @@ void main()
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Keiichi</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 1, "ps3/s27/01/nkei_1560", 128, TRUE);
 	OutputLine(NULL, "「のわああぁあぁああぁぁ！！",
-		   NULL, "\"Nowaahhhhh!!", Line_ContinueAfterTyping);
+		   NULL, "« Nooooon !!", Line_ContinueAfterTyping);
 	OutputLine(NULL, "　やめッ、許して！！",
-		   NULL, " No, please, forgive me!!", Line_ContinueAfterTyping);
+		   NULL, " Arrêtez, pitié !!", Line_ContinueAfterTyping);
 	OutputLine(NULL, "　ひぃいいいぃい！",
-		   NULL, " Heeeeeee!", Line_ContinueAfterTyping);
+		   NULL, " Hiiiiiii !", Line_ContinueAfterTyping);
 	OutputLine(NULL, "　お婿に行けなくなるーー！！」",
-		   NULL, " I can't get married anymooore!!\"", Line_Normal);
+		   NULL, " Je ne pourrai plus jamais me marier !! »", Line_Normal);
 	ClearMessage();
 	DisableWindow();
 
@@ -138,16 +138,16 @@ void main()
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Keiichi</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 1, "ps3/s27/01/nkei_1570", 128, TRUE);
 	OutputLine(NULL, "「何でだ、何で俺は勝てないんだ…！",
-		   NULL, "\"Why... Why can't I win...?!", Line_ContinueAfterTyping);
+		   NULL, "« Pourquoi... pourquoi j'arrive jamais à gagner... ?!", Line_ContinueAfterTyping);
 
 	OutputLine(NULL, "　最近、明らかに勝ってない。",
-		   NULL, " I've been losing constantly lately.", Line_ContinueAfterTyping);
+		   NULL, " Ces derniers temps, je perds vraiment tout le temps.", Line_ContinueAfterTyping);
 
 	OutputLine(NULL, "というか罰ゲーム常連だよな。",
-		   NULL, " I'm a punishment game regular at this point.", Line_ContinueAfterTyping);
+		   NULL, "En fait, je suis carrément devenu un habitué des gages.", Line_ContinueAfterTyping);
 
 	OutputLine(NULL, "…お、俺はこのままみんなの着せ替え人形になってしまうのかあぁあぁッ！！」",
-		   NULL, " ...I-Is this it? Am I just everyone's dress-up doll now?!\"", GetGlobalFlag(GLinemodeSp));
+		   NULL, "…J-je vais finir en poupée à habiller pour tout le monde, ou quoiii ?! »", GetGlobalFlag(GLinemodeSp));
 	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
 
 	//;＜圭一
@@ -155,20 +155,20 @@ void main()
 
 	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
 	OutputLine(NULL, "　枕を涙で濡らすという言葉があることを、圭一は身をもって体験している最中だった……。",
-		   NULL, "Keiichi was just experiencing firsthand what it meant to cry into one's pillow...", Line_Normal);
+		   NULL, "Keiichi était alors en train d'apprendre à ses dépens ce que signifiait l'expression « pleurer dans son oreiller »...", Line_Normal);
 	ClearMessage();
 
 
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Keiichi</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 1, "ps3/s27/01/nkei_1580", 128, TRUE);
 	OutputLine(NULL, "「あぁぁ…神さま仏さま、いらっしゃるならどうかお聞き届け下さい。",
-		   NULL, "\"Ahhh... God, Buddha, if you're out there, please, grant my prayers.", Line_ContinueAfterTyping);
+		   NULL, "« Aaaah... Dieu, Bouddha, si vous existez, je vous en supplie, écoutez ma prière.", Line_ContinueAfterTyping);
 
 	OutputLine(NULL, "部活に負けないようになりたい！",
-		   NULL, " I don't want to have to lose these club games forever!", Line_ContinueAfterTyping);
+		   NULL, "Je veux ne plus perdre aux jeux du club !", Line_ContinueAfterTyping);
 
 	OutputLine(NULL, "　どうか俺に不敗の力をーー！」",
-		   NULL, " Please, grant me the power to never lose again...!\"", Line_Normal);
+		   NULL, " Accordez-moi le pouvoir d'être imbattable — ! »", Line_Normal);
 
 	ClearMessage();
 	//;＜圭一
@@ -177,7 +177,7 @@ void main()
 
 	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
 	OutputLine(NULL, "　その時！！",
-		   NULL, "Just then!!", Line_Normal);
+		   NULL, "À cet instant !!", Line_Normal);
 	ClearMessage();
 
 	DisableWindow();
@@ -189,7 +189,7 @@ void main()
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>？？？</color>", NULL, "<color=#f5e6d3>???</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 8, "ps3/s27/08/ntom_0560", 128, TRUE);
 	OutputLine(NULL, "「水臭いよＫぇええぇええぇぇい！！」",
-		   NULL, "\"Don't be so distant, Keeeeeeeiiiiiiiii!!\"", Line_Continue);
+		   NULL, "« Ne fais pas comme si on était des étrangers, Kééééééééééii !! »", Line_Continue);
 	SetSpeedOfMessage( FALSE, 0 );
 	OutputLineAll(NULL, "", GetGlobalFlag(GLinemodeSp));
 	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
@@ -197,16 +197,16 @@ void main()
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>？？？</color>", NULL, "<color=#f5e6d3>???</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 10, "ps3/s27/10/niri_0000", 128, TRUE);
 	OutputLine(NULL, "「神さま仏さま聖母さま！！",
-		   NULL, "\"God, Buddha, the Holy Mother?!", Line_ContinueAfterTyping);
+		   NULL, "« Dieu, Bouddha, la Sainte Vierge !!", Line_ContinueAfterTyping);
 	OutputLine(NULL, "　祈る対象数あれど、その前に頼るべき頼もしい味方がいるじゃあないか！！」",
-		   NULL, " You pray to many—when you have other more reliable allies you could be asking first!\"", GetGlobalFlag(GLinemodeSp));
+		   NULL, " Tu peux prier qui tu veux, mais avant ça, tu as des alliés autrement plus fiables sur qui compter, non ?! »", GetGlobalFlag(GLinemodeSp));
 	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
 	//;＜富竹
 
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#f5e6d3>？？？</color>", NULL, "<color=#f5e6d3>???</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 11, "ps3/s27/11/nois_0000", 128, TRUE);
 	OutputLine(NULL, "「そういう事です、んっふっふっふ！！」",
-		   NULL, "\"Exactly, nfu fu fu!!\"", Line_Normal);
+		   NULL, "« C'est exactement ça, nfu fu fu !! »", Line_Normal);
 	ClearMessage();
 
 	SetSpeedOfMessage( TRUE, 128 );
@@ -214,11 +214,11 @@ void main()
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Keiichi</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 1, "ps3/s27/01/nkei_1590", 128, TRUE);
 	OutputLine(NULL, "「トミーッ！！",
-		   NULL, "\"Tomiiii!!", Line_ContinueAfterTyping);
+		   NULL, "« Tommy !!", Line_ContinueAfterTyping);
 	OutputLine(NULL, "クラウド！！",
-		   NULL, " Cloud!!", Line_ContinueAfterTyping);
+		   NULL, "Cloud !!", Line_ContinueAfterTyping);
 	OutputLine(NULL, "そしてイリーッ！！」",
-		   NULL, " And Iriii!!\"", GetGlobalFlag(GLinemodeSp));
+		   NULL, "Et Irie !! »", GetGlobalFlag(GLinemodeSp));
 	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
 
 	//;＜それぞれ３人
@@ -239,12 +239,12 @@ void main()
 	StartShakingOfWindow( 278, 30, 0, 4, 3*3, FALSE );
 	StartShakingOfAllObjects( 278, 30, 0, 4, 3*3, TRUE );
 
-	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#945c44>トミー</color>＆<color=#a59da9>クラウド</color>＆<color=#c89a80>イリー</color>", NULL, "<color=#945c44>Tomi</color> & <color=#a59da9>Cloud</color> & <color=#c89a80>Iri</color>", NULL, Line_ContinueAfterTyping); }
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#945c44>トミー</color>＆<color=#a59da9>クラウド</color>＆<color=#c89a80>イリー</color>", NULL, "<color=#945c44>Tommy</color> & <color=#a59da9>Cloud</color> & <color=#c89a80>Irie</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 8, "ps3/s27/08/ntom_0570", 128, TRUE);
 	ModPlayVoiceLS(5, 11, "ps3/s27/11/nois_0010", 128, TRUE);
 	ModPlayVoiceLS(6, 10, "ps3/s27/10/niri_0010", 128, TRUE);
 	OutputLine(NULL, "「「「見参ッ！！！」」」",
-		   NULL, "\"\"\"On the scene!!!\"\"\"", Line_Continue);
+		   NULL, "« « « Nous voilà !!! » » »", Line_Continue);
 	SetSpeedOfMessage( FALSE, 0 );
 	OutputLineAll(NULL, "", Line_Normal);
 	ClearMessage();
@@ -253,26 +253,26 @@ void main()
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Keiichi</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 1, "ps3/s27/01/nkei_1600", 128, TRUE);
 	OutputLine(NULL, "「おわぁッ！！",
-		   NULL, "\"Owah!!", Line_ContinueAfterTyping);
+		   NULL, "« Ouah !!", Line_ContinueAfterTyping);
 	OutputLine(NULL, "　み、みんな、こんな時間に何の用だよ？！",
-		   NULL, " Wh-What do you three want at this hour?!", Line_ContinueAfterTyping);
+		   NULL, " M-mais qu'est-ce que vous faites là à cette heure-ci ?!", Line_ContinueAfterTyping);
 	OutputLine(NULL, "　取り合えずどうして天井裏から現われたかは不問とするけどさぁ…。」",
-		   NULL, " I'm not gonna ask why you showed up from inside the ceiling for now...\"", GetGlobalFlag(GLinemodeSp));
+		   NULL, " Bon, pour l'instant, je ne vous demanderai pas pourquoi vous êtes sortis du plafond... »", GetGlobalFlag(GLinemodeSp));
 	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
 
 	DisableWindow();
 	//;＜圭一
 	ModDrawCharacter(1, 8, "sprite/tomi3_def_", "0", -240, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 0, 300, TRUE );
 
-	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#945c44>トミー</color>", NULL, "<color=#945c44>Tomi</color>", NULL, Line_ContinueAfterTyping); }
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#945c44>トミー</color>", NULL, "<color=#945c44>Tommy</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 8, "ps3/s27/08/ntom_0580", 128, TRUE);
 	OutputLine(NULL, "「決まってるじゃないか。",
-		   NULL, "\"Isn't it obvious?", Line_ContinueAfterTyping);
+		   NULL, "« Ce n'est pas évident ?", Line_ContinueAfterTyping);
 
 	OutputLine(NULL, "僕たちはソウルブラザー、",
-		   NULL, " We're siblings in spirit...", Line_ContinueAfterTyping);
+		   NULL, "Nous sommes des soul brothers,", Line_ContinueAfterTyping);
 	OutputLine(NULL, "魂の兄弟だよ！！」",
-		   NULL, " Soul Brothers!!\"", GetGlobalFlag(GLinemodeSp));
+		   NULL, " des frères d'âme !! »", GetGlobalFlag(GLinemodeSp));
 	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
 
 	DisableWindow();
@@ -285,16 +285,16 @@ void main()
 	//;＜富竹
 	ModDrawCharacter(3, 10, "sprite/iri1_def2_", "2", 240, 0, 0, FALSE, 0, 0, 0, 0, 0, 0, 0, 20, 300, TRUE );
 
-	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#c89a80>イリー</color>", NULL, "<color=#c89a80>Iri</color>", NULL, Line_ContinueAfterTyping); }
+	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#c89a80>イリー</color>", NULL, "<color=#c89a80>Irie</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 10, "ps3/s27/10/niri_0020", 128, TRUE);
 	OutputLine(NULL, "「そうですよＫ！",
-		   NULL, "\"That's right, K!", Line_ContinueAfterTyping);
+		   NULL, "« Exactement, K !", Line_ContinueAfterTyping);
 	OutputLine(NULL, "　あなたの悩みは私たちの悩みです！！",
-		   NULL, " Your worries are our worries!!", Line_ContinueAfterTyping);
+		   NULL, " Tes soucis sont nos soucis !!", Line_ContinueAfterTyping);
 	OutputLine(NULL, "　あなたはさっき泣いていましたね？！",
-		   NULL, " You were crying just now, weren't you?!", Line_ContinueAfterTyping);
+		   NULL, " Tu pleurais, tout à l'heure, n'est-ce pas ?!", Line_ContinueAfterTyping);
 	OutputLine(NULL, "　最近部活に勝てない、と！！」",
-		   NULL, " About how you can't win at club games lately!!\"", Line_Normal);
+		   NULL, " Parce que tu n'arrives plus à gagner aux jeux du club, ces derniers temps !! »", Line_Normal);
 	ClearMessage();
 	DisableWindow();
 	//;＜入江
@@ -303,22 +303,22 @@ void main()
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#a59da9>クラウド</color>", NULL, "<color=#a59da9>Cloud</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 11, "ps3/s27/11/nois_0020", 128, TRUE);
 	OutputLine(NULL, "「んっふっふっふ！",
-		   NULL, "\"Nfu fu fu!", Line_ContinueAfterTyping);
+		   NULL, "« Nfu fu fu !", Line_ContinueAfterTyping);
 	OutputLine(NULL, "　あなたの願い、私たちが見事聞き届けてあげますよぅ！！",
-		   NULL, " We shall grant your wishes brilliantly!!", Line_ContinueAfterTyping);
+		   NULL, " Ton souhait, nous allons l'exaucer avec brio !!", Line_ContinueAfterTyping);
 	OutputLine(NULL, "　勝たせてあげます！！",
-		   NULL, " We will make you win!", Line_ContinueAfterTyping);
+		   NULL, " Nous allons te faire gagner !!", Line_ContinueAfterTyping);
 	OutputLine(NULL, "　勝てる力をあなたにあたえてあげます！！」",
-		   NULL, " We will give you the strength to win!!\"", GetGlobalFlag(GLinemodeSp));
+		   NULL, " Nous allons te donner le pouvoir de vaincre !! »", GetGlobalFlag(GLinemodeSp));
 	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
 
 	if (GetGlobalFlag(GADVMode)) { OutputLine("<color=#956f6e>圭一</color>", NULL, "<color=#956f6e>Keiichi</color>", NULL, Line_ContinueAfterTyping); }
 	ModPlayVoiceLS(4, 1, "ps3/s27/01/nkei_1610", 128, TRUE);
 	OutputLine(NULL, "「ぅ、うわあぁん、みんなぁ〜！！",
-		   NULL, "\"U-Uwaaahn, everyone~!!", Line_ContinueAfterTyping);
+		   NULL, "« O-ouaaaaah, les gars~~ !!", Line_ContinueAfterTyping);
 
 	OutputLine(NULL, "　ありがとう〜〜！！！！」",
-		   NULL, " Thank you~~!!!!\"", Line_Normal);
+		   NULL, " Merci~~ !!!! »", Line_Normal);
 	ClearMessage();
 	DisableWindow();
 	//;＜圭一
@@ -333,7 +333,7 @@ void main()
 
 	if (GetGlobalFlag(GADVMode)) { OutputLineAll("", NULL, Line_ContinueAfterTyping); }
 	OutputLine(NULL, "　ひし！",
-		   NULL, "Squeeze!", Line_WaitForInput);
+		   NULL, " Ils se serrèrent fort !", Line_WaitForInput);
 	OutputLine(NULL, "　堅く抱き合う男４人。",
 		   NULL, " The four men engaged in a tight group hug.", GetGlobalFlag(GLinemodeSp));
 	if (GetGlobalFlag(GADVMode)) { ClearMessage(); } else { OutputLineAll(NULL, "\n", Line_ContinueAfterTyping); }
