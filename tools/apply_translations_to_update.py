@@ -3,7 +3,8 @@
 
 This tool is intentionally conservative: it only replaces the English player
 text argument inside OutputLine/OutputLineAll calls after confirming the current
-source still matches the CSV original_line exactly.
+source still matches the CSV original_line, or is already exactly in the
+expected translated form.
 """
 
 from __future__ import annotations
@@ -390,6 +391,36 @@ def build_replacement_span(row: TranslationRow) -> tuple[str | None, str | None]
     )
 
 
+def current_source_span(
+    text: str,
+    line_starts: list[int],
+    line_number: int,
+    expected_span: str,
+) -> tuple[int, int] | None:
+    """Return the current physical source span for the CSV original_line.
+
+    Replacements can change the number of characters on a line, so slicing by
+    len(original_line) is not idempotent. The generated translations keep the
+    same physical line count, so we locate the span by line number and by the
+    number of source lines stored in original_line.
+    """
+    start_index = line_number - 1
+    if start_index >= len(line_starts):
+        return None
+
+    physical_line_count = expected_span.count("\n") + 1
+    end_line_index = start_index + physical_line_count
+    start = line_starts[start_index]
+    if end_line_index < len(line_starts):
+        # line_starts points after "\n"; subtract one to exclude the newline
+        # while preserving a possible "\r" from CRLF scripts.
+        end = line_starts[end_line_index] - 1
+    else:
+        end = len(text)
+
+    return start, end
+
+
 def load_csv_rows(
     csv_path: Path,
     file_filter: str | None,
@@ -458,9 +489,10 @@ def resolve_update_file(repo_root: Path, relative_file: str) -> Path:
 def plan_replacements(
     repo_root: Path,
     rows: list[TranslationRow],
-) -> tuple[dict[str, ScriptText], dict[str, list[Replacement]], list[str]]:
+) -> tuple[dict[str, ScriptText], dict[str, list[Replacement]], int, list[str]]:
     scripts: dict[str, ScriptText] = {}
     replacements_by_file: dict[str, list[Replacement]] = {}
+    already_applied = 0
     errors: list[str] = []
 
     for row in rows:
@@ -479,18 +511,15 @@ def plan_replacements(
 
         script = scripts[row.file]
         line_starts = line_starts_for(script.text)
-        if row.line_number > len(line_starts):
+        current_span_indexes = current_source_span(
+            script.text,
+            line_starts,
+            row.line_number,
+            row.original_line,
+        )
+        if current_span_indexes is None:
             errors.append(
                 f"CSV row {row.csv_row_number}: line_number is outside {row.file}"
-            )
-            continue
-
-        start = line_starts[row.line_number - 1]
-        end = start + len(row.original_line)
-        current_span = script.text[start:end]
-        if current_span != row.original_line:
-            errors.append(
-                f"CSV row {row.csv_row_number}: original_line mismatch in {row.file}"
             )
             continue
 
@@ -499,12 +528,24 @@ def plan_replacements(
             errors.append(f"CSV row {row.csv_row_number}: {replacement_error}")
             continue
 
+        start, end = current_span_indexes
+        current_span = script.text[start:end]
+        if current_span == replacement_span and current_span != row.original_line:
+            already_applied += 1
+            continue
+
+        if current_span != row.original_line:
+            errors.append(
+                f"CSV row {row.csv_row_number}: original_line mismatch in {row.file}"
+            )
+            continue
+
         replacements_by_file.setdefault(row.file, []).append(
             Replacement(row=row, start=start, end=end, replacement_text=replacement_span)
         )
 
     errors.extend(check_overlaps(replacements_by_file))
-    return scripts, replacements_by_file, errors
+    return scripts, replacements_by_file, already_applied, errors
 
 
 def check_overlaps(replacements_by_file: dict[str, list[Replacement]]) -> list[str]:
@@ -570,6 +611,7 @@ def write_updated_scripts(
 def print_summary(
     applicable: int,
     changed_rows: int,
+    already_applied: int,
     modified_rows: int,
     errors: list[str],
     files_touched: list[str],
@@ -580,8 +622,11 @@ def print_summary(
     print(f"Lines applicable: {applicable}")
     if dry_run:
         print(f"Lines that would change: {changed_rows}")
+        print(f"Lines already applied: {already_applied}")
         print("Lines modified: 0")
     else:
+        print(f"Lines that would change: {changed_rows}")
+        print(f"Lines already applied: {already_applied}")
         print(f"Lines modified: {modified_rows}")
     print(f"Errors: {len(errors)}")
     print(f"Files touched: {len(files_touched)}")
@@ -612,7 +657,12 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         rows, csv_errors = load_csv_rows(csv_path, file_filter)
-        scripts, replacements_by_file, plan_errors = plan_replacements(repo_root, rows)
+        (
+            scripts,
+            replacements_by_file,
+            already_applied,
+            plan_errors,
+        ) = plan_replacements(repo_root, rows)
     except (OSError, csv.Error) as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return 1
@@ -637,8 +687,10 @@ def main(argv: list[str] | None = None) -> int:
 
     if errors:
         print_summary(
-            applicable=sum(len(items) for items in replacements_by_file.values()),
+            applicable=sum(len(items) for items in replacements_by_file.values())
+            + already_applied,
             changed_rows=changed_rows,
+            already_applied=already_applied,
             modified_rows=0,
             errors=errors,
             files_touched=files_that_would_change,
@@ -649,8 +701,10 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.dry_run:
         print_summary(
-            applicable=sum(len(items) for items in replacements_by_file.values()),
+            applicable=sum(len(items) for items in replacements_by_file.values())
+            + already_applied,
             changed_rows=changed_rows,
+            already_applied=already_applied,
             modified_rows=0,
             errors=[],
             files_touched=files_that_would_change,
@@ -666,8 +720,10 @@ def main(argv: list[str] | None = None) -> int:
         files_written = write_updated_scripts(repo_root, scripts, replacements_by_file)
     except (OSError, UnicodeEncodeError, ValueError) as error:
         print_summary(
-            applicable=sum(len(items) for items in replacements_by_file.values()),
+            applicable=sum(len(items) for items in replacements_by_file.values())
+            + already_applied,
             changed_rows=changed_rows,
+            already_applied=already_applied,
             modified_rows=0,
             errors=[str(error)],
             files_touched=[],
@@ -677,8 +733,10 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     print_summary(
-        applicable=sum(len(items) for items in replacements_by_file.values()),
+        applicable=sum(len(items) for items in replacements_by_file.values())
+        + already_applied,
         changed_rows=changed_rows,
+        already_applied=already_applied,
         modified_rows=changed_rows,
         errors=[],
         files_touched=files_written,
